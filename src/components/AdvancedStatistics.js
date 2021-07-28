@@ -49,7 +49,7 @@ const Container = styled.div`
   opacity: 1;
   color: white;
   right: 0;
-  height: 70vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
