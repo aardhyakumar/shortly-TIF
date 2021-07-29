@@ -9,10 +9,12 @@ function Search() {
   const [short, setShort] = useState([]);
   const [old, setold] = useState([]);
   const [error, seterror] = useState(false);
+  const [loading, setloading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (link.length > 0 && checkLink(link)) {
       console.log(link);
+      setloading(true);
       setold((v) => [...v, link]);
       seterror(false);
       getLink(link);
@@ -27,6 +29,7 @@ function Search() {
       .then((response) => {
         console.log();
         setShort((v) => [...v, response.data.result.short_link]);
+        setloading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -49,9 +52,13 @@ function Search() {
           onChange={(e) => setLink(e.target.value)}
         />
         {error && <p className="error">Please add a link!</p>}
-        <button type="submit" onClick={(e) => handleSubmit(e)}>
-          Shorten It!
-        </button>
+        {loading ? (
+          <button type="submit">Loading</button>
+        ) : (
+          <button type="submit" onClick={(e) => handleSubmit(e)}>
+            Shorten It!
+          </button>
+        )}
       </SearchContainer>
       {short && <LinkContainer shortlink={short} link={old} />}
     </Container>

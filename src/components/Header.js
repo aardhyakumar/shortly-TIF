@@ -74,7 +74,7 @@ const NavMenu = styled.div`
   a {
     display: flex;
     align-items: center;
-    padding: 10px 12px;
+    padding: 10px .8vw;
     span {
       font-size: 14px;
       font-weight: 500 !important;
@@ -93,7 +93,7 @@ const NavMenu = styled.div`
     transition:0.4s;
     }
   }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     display: none;
   }
 `;
@@ -115,7 +115,7 @@ const SignUp = styled.a`
     color: black;
     transition: 0.4s;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     display: none;
   }
 `;
@@ -138,7 +138,7 @@ const Login = styled.a`
     transition: 0.4s;
     cursor: pointer;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     display: none;
   }
 `;
