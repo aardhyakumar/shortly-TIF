@@ -165,5 +165,12 @@ const SearchContainer = styled.div`
       font-size: 2.4vh;
       padding: 0;
     }
+    .error {
+      position: absolute;
+      color: #f46262;
+      top: 13vh;
+      left: 5.4vw;
+      font-size: 2vw;
+    }
   }
 `;
