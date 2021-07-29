@@ -54,6 +54,10 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   z-index: 0;
+  @media only screen and (max-width: 400px) {
+    top: 0;
+    min-height: 120vh;
+  }
 `;
 const Statistics = styled.div`
   position: absolute;
@@ -78,6 +82,16 @@ const Statistics = styled.div`
     font-size: 1vw;
     color: #9e9aa7;
   }
+  @media only screen and (max-width: 400px) {
+    h1 {
+      top: 0;
+      font-size: 2.8vh;
+    }
+    p {
+      top: 2px;
+      font-size: 1.1vh;
+    }
+  }
 `;
 
 const InfoBox = styled.div`
@@ -87,7 +101,12 @@ const InfoBox = styled.div`
   color: white;
   top: 20vw;
   height: 50vh;
+  margin-top: 5vh;
   background-color: #f0f0f0;
+  @media only screen and (max-width: 400px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 const InfoBoxOne = styled.div`
   position: absolute;
@@ -120,6 +139,33 @@ const InfoBoxOne = styled.div`
     padding-left: 1vw;
     font-size: 1vw;
     color: #9e9aa7;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 80%;
+    left: 3vh;
+    height: 30vh;
+    img {
+      position: relative;
+      left: 13vh;
+      bottom: 3vh;
+      height: 4vh;
+      padding: 12px;
+      border-radius: 50px;
+      background-color: #232127;
+    }
+    h3 {
+      padding-left: 2vh;
+      font-size: 3vh;
+      margin-bottom: 1vh;
+      color: black;
+    }
+    p {
+      margin-bottom: 0.2vw;
+      padding-left: 2vh;
+      font-size: 1.6vh;
+      font-weight: 500 !important;
+      color: #9e9aa7;
+    }
   }
 `;
 const InfoBoxTwo = styled.div`
@@ -154,6 +200,34 @@ const InfoBoxTwo = styled.div`
     font-size: 1vw;
     color: #9e9aa7;
   }
+  @media only screen and (max-width: 400px) {
+    top: 35vh;
+    width: 80%;
+    left: 3vh;
+    height: 30vh;
+    img {
+      position: relative;
+      left: 13vh;
+      bottom: 3vh;
+      height: 4vh;
+      padding: 12px;
+      border-radius: 50px;
+      background-color: #232127;
+    }
+    h3 {
+      padding-left: 2vh;
+      font-size: 3vh;
+      margin-bottom: 1vh;
+      color: black;
+    }
+    p {
+      margin-bottom: 0.2vw;
+      padding-left: 2vh;
+      font-size: 1.6vh;
+      font-weight: 500 !important;
+      color: #9e9aa7;
+    }
+  }
 `;
 const InfoBoxThree = styled.div`
   position: absolute;
@@ -187,6 +261,34 @@ const InfoBoxThree = styled.div`
     font-size: 1vw;
     color: #9e9aa7;
   }
+  @media only screen and (max-width: 400px) {
+    width: 80%;
+    left: 3vh;
+    top: 70vh;
+    height: 30vh;
+    img {
+      position: relative;
+      left: 13vh;
+      bottom: 3vh;
+      height: 4vh;
+      padding: 12px;
+      border-radius: 50px;
+      background-color: #232127;
+    }
+    h3 {
+      padding-left: 2vh;
+      font-size: 3vh;
+      margin-bottom: 1vh;
+      color: black;
+    }
+    p {
+      margin-bottom: 0.2vw;
+      padding-left: 2vh;
+      font-size: 1.6vh;
+      font-weight: 500 !important;
+      color: #9e9aa7;
+    }
+  }
 `;
 const ConnectLine = styled.div`
   position: absolute;
@@ -198,4 +300,11 @@ const ConnectLine = styled.div`
   height: 0.8vw;
   background-color: #2acfcf;
   z-index: 0;
+  @media only screen and (max-width: 400px) {
+    height: 80vh;
+    top: 0;
+    left: 20vh;
+    width: 1vh;
+    margin: 0;
+  }
 `;

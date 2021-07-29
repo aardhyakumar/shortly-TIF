@@ -30,8 +30,14 @@ const Container = styled.div`
   right: 0;
   height: 70vh;
   display: flex;
+  flex: wrap;
   align-items: center;
   z-index: 0;
+  @media only screen and (max-width: 400px) {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+  }
 `;
 const ContainerLeft = styled.div`
   position: absolute;
@@ -60,6 +66,35 @@ const ContainerLeft = styled.div`
     font-size: 1.2vw;
     color: #bfbfbf;
   }
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+    flex-direction: column;
+    left: 0;
+    top: 20vh;
+    padding: 0;
+    margin: 0;
+    right: 10vw;
+    align-items: center;
+    h1 {
+      position: relative;
+      top: 30%;
+      text-align: left;
+      padding: 0;
+      color: black;
+      font-size: 5vh;
+      font-weight: 700 !important;
+    }
+    p {
+      position: relative;
+      top: 40%;
+      font-size: 2vh;
+      letter-spacing: 0.8px;
+      font-weight: 700 !important;
+      color: #bfbfbf;
+      z-index: 2;
+      text-align: center;
+    }
+  }
 `;
 const ContainerRight = styled.div`
   position: absolute;
@@ -76,6 +111,13 @@ const ContainerRight = styled.div`
     top: 2%;
     width: 100%;
     left: 20%;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+    flex-direction: column;
+    left: 0;
+    right: 10vw;
+    align-items: center;
   }
 `;
 const Button = styled.a`
@@ -97,5 +139,12 @@ const Button = styled.a`
     opacity: 0.6;
     transition: 0.4s;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 400px) {
+    flex-direction: column;
+    left: 0;
+    right: 10vw;
+    top: 78vh;
+    align-items: center;
   }
 `;

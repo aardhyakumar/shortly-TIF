@@ -30,6 +30,13 @@ const Container = styled.div`
     position: absolute;
     top: 5vh;
   }
+  @media only screen and (max-width: 400px) {
+    top: 0vh;
+    h1 {
+      top: 8vh;
+      font-size: 4vh;
+    }
+  }
 `;
 const Button = styled.a`
   padding: 15px 1vh;
@@ -56,5 +63,13 @@ const Button = styled.a`
     opacity: 0.6;
     transition: 0.4s;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 400px) {
+    font-size: 1.8vh;
+    padding-top: 3vh;
+    width: 12vh;
+    p {
+      text-align: center;
+    }
   }
 `;

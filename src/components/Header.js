@@ -93,7 +93,7 @@ const NavMenu = styled.div`
     transition:0.4s;
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 400px) {
     display: none;
   }
 `;
@@ -115,6 +115,9 @@ const SignUp = styled.a`
     color: black;
     transition: 0.4s;
   }
+  @media (max-width: 400px) {
+    display: none;
+  }
 `;
 const Login = styled.a`
   top: 10px;
@@ -134,5 +137,8 @@ const Login = styled.a`
     opacity: 0.6;
     transition: 0.4s;
     cursor: pointer;
+  }
+  @media (max-width: 400px) {
+    display: none;
   }
 `;

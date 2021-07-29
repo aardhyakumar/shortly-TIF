@@ -1,15 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import LinkContainer from "./LinkContainer";
-
+import shrtcode from "../api/shrtcode";
 function Search() {
+  const HTTP_URL_VALIDATOR_REGEX =
+    /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+  const [link, setLink] = useState("");
+  const [short, setShort] = useState([]);
+  const [old, setold] = useState([]);
+  const [error, seterror] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (link.length > 0 && checkLink(link)) {
+      console.log(link);
+      setold((v) => [...v, link]);
+      seterror(false);
+      getLink(link);
+      setLink("");
+    } else {
+      seterror(true);
+    }
+  };
+  const getLink = async () => {
+    await shrtcode
+      .get(`shorten?url=${link}`)
+      .then((response) => {
+        console.log();
+        setShort((v) => [...v, response.data.result.short_link]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  // Link Validation Function
+  const checkLink = (string) => {
+    // Regex to check if string is a valid URL
+    return string.match(HTTP_URL_VALIDATOR_REGEX);
+  };
   return (
     <Container>
       <SearchContainer>
-        <input type="text" placeholder="Shorten a link here ..." />
-        <button type="submit">Shorten It!</button>
+        <input
+          onSubmit={(e) => handleSubmit(e)}
+          type="text"
+          placeholder="Shorten a link here ..."
+          value={link}
+          onChange={(e) => setLink(e.target.value)}
+        />
+        {error && <p className="error">Please add a link!</p>}
+        <button type="submit" onClick={(e) => handleSubmit(e)}>
+          Shorten It!
+        </button>
       </SearchContainer>
-      <LinkContainer />
+      {short && <LinkContainer shortlink={short} link={old} />}
     </Container>
   );
 }
@@ -29,6 +73,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   z-index: 0;
+  @media only screen and (max-width: 400px) {
+    top: 10vh;
+    min-height: 20vh;
+    border-radius: 4px;
+  }
 `;
 const SearchContainer = styled.div`
   position: relative;
@@ -53,6 +102,15 @@ const SearchContainer = styled.div`
     width: 50vw;
     padding: 1vw;
     border-radius: 8px;
+    font-size: 2vw;
+    &:focus {
+      outline-color: #f46262;
+      color: #f46262;
+    }
+    &::placeholder {
+      color: #f46262;
+      font-size: 2vw;
+    }
   }
   button {
     position: absolute;
@@ -71,6 +129,41 @@ const SearchContainer = styled.div`
       filter: brightness(110%);
       cursor: pointer;
       transition: 0.4s;
+    }
+  }
+  .error {
+    position: absolute;
+    color: #f46262;
+    top: 9vw;
+    left: 5.2vw;
+    font-size: 2vw;
+  }
+  @media only screen and (max-width: 400px) {
+    bottom: 4vh;
+    min-height: 15vh;
+    border-radius: 8px;
+    input {
+      width: 80%;
+      height: 4vh;
+      bottom: 3vh;
+      border-radius: 8px;
+      font-size: 2.4vh;
+      &::placeholder {
+        color: #bfbfbf;
+        font-size: 2.4vh;
+        padding-top: 2vh;
+        padding-left: 2vh;
+      }
+    }
+    button {
+      width: 82%;
+      left: 2.9vh;
+      height: 5vh;
+      border-radius: 6px;
+      top: 8.2vh;
+      text-align: center;
+      font-size: 2.4vh;
+      padding: 0;
     }
   }
 `;
