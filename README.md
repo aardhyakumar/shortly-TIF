@@ -1,4 +1,4 @@
-Deployes on:https://tif-shortly.netlify.app/
+Deployed on:https://tif-shortly.netlify.app/
 
 # Getting Started with Create React App
 
